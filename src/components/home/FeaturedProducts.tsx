@@ -11,9 +11,8 @@ export const FeaturedProducts = () => {
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
       try {
-        const allProducts = await getProducts();
-        const featuredProducts = allProducts.filter(product => product.featured);
-        setProducts(featuredProducts);
+        const allProducts = await getProducts({ featured: true });
+        setProducts(allProducts);
       } catch (error) {
         console.error('Error fetching featured products:', error);
       } finally {
