@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,20 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        rose: {
+          50: '#fff1f2',
+          100: '#ffdee2',
+          200: '#ffc2ca',
+          300: '#ff97a6',
+          400: '#fe5e77',
+          500: '#f33252',
+          600: '#db1436',
+          700: '#b70c2f',
+          800: '#990e2c',
+          900: '#7d112c',
+          950: '#450112',
+        },
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,12 +98,26 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        'slide-up': {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in': 'fade-in 0.6s ease-out',
+        'slide-up': 'slide-up 0.4s ease-out',
+			},
+      fontFamily: {
+        'playfair': ['"Playfair Display"', 'serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+      }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
