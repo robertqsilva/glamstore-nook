@@ -1,8 +1,8 @@
 
 import { Product, ProductFilter, ProductFormData } from '@/types/product';
 
-// API base URL (would be an actual URL in production)
-const API_BASE_URL = '/api';
+// API base URL (external API URL)
+const API_BASE_URL = 'https://api.ateliegleicerios.com.br/api';
 
 // Simulate fetch delay
 const simulateDelay = (ms: number = 500) => new Promise(resolve => setTimeout(resolve, ms));

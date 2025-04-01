@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import { ProductCard } from '@/components/products/ProductCard';
 import { Product } from '@/types/product';
 import { getProducts } from '@/services/api';
+import { useToast } from '@/hooks/use-toast';
 
 export const FeaturedProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
 
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
@@ -15,13 +17,18 @@ export const FeaturedProducts = () => {
         setProducts(allProducts);
       } catch (error) {
         console.error('Error fetching featured products:', error);
+        toast({
+          title: "Erro ao carregar produtos",
+          description: "Não foi possível carregar os produtos em destaque. Tente novamente mais tarde.",
+          variant: "destructive",
+        });
       } finally {
         setLoading(false);
       }
     };
 
     fetchFeaturedProducts();
-  }, []);
+  }, [toast]);
 
   if (loading) {
     return (
