@@ -139,10 +139,10 @@ const ProductsPage = () => {
                       <TableCell className="font-medium">{product.name}</TableCell>
                       <TableCell className="capitalize">{product.category}</TableCell>
                       <TableCell>
-                        {product.salePrice ? (
+                        {product.saleprice ? (
                           <div>
                             <span className="text-rose-500 font-medium">
-                              {formatCurrency(product.salePrice)}
+                              {formatCurrency(product.saleprice)}
                             </span>
                             <span className="text-gray-400 line-through text-xs ml-2">
                               {formatCurrency(product.price)}
@@ -154,11 +154,11 @@ const ProductsPage = () => {
                       </TableCell>
                       <TableCell>
                         <span className={`px-2 py-1 rounded-full text-xs ${
-                          product.inStock 
+                          product.instock 
                             ? 'bg-green-100 text-green-800' 
                             : 'bg-red-100 text-red-800'
                         }`}>
-                          {product.inStock ? 'Em estoque' : 'Esgotado'}
+                          {product.instock ? 'Em estoque' : 'Esgotado'}
                         </span>
                       </TableCell>
                       <TableCell>
@@ -168,7 +168,7 @@ const ProductsPage = () => {
                               <Star size={16} className="text-amber-500" />
                             </span>
                           )}
-                          {product.salePrice && (
+                          {product.saleprice && (
                             <span title="Promoção">
                               <Tag size={16} className="text-rose-500" />
                             </span>

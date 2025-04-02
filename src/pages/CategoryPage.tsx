@@ -28,7 +28,7 @@ const CategoryPage = () => {
     colors: [] as string[],
     sizes: [] as string[],
     priceRange: null as string | null,
-    inStock: false,
+    instock: false,
   });
 
   const colorOptions = [
@@ -121,27 +121,27 @@ const CategoryPage = () => {
     if (filters.priceRange) {
       switch (filters.priceRange) {
         case 'under-150':
-          filtered = filtered.filter(p => (p.salePrice || p.price) < 150);
+          filtered = filtered.filter(p => (p.saleprice || p.price) < 150);
           break;
         case '150-300':
           filtered = filtered.filter(
-            p => (p.salePrice || p.price) >= 150 && (p.salePrice || p.price) < 300
+            p => (p.saleprice || p.price) >= 150 && (p.saleprice || p.price) < 300
           );
           break;
         case '300-500':
           filtered = filtered.filter(
-            p => (p.salePrice || p.price) >= 300 && (p.salePrice || p.price) < 500
+            p => (p.saleprice || p.price) >= 300 && (p.saleprice || p.price) < 500
           );
           break;
         case 'over-500':
-          filtered = filtered.filter(p => (p.salePrice || p.price) >= 500);
+          filtered = filtered.filter(p => (p.saleprice || p.price) >= 500);
           break;
       }
     }
 
     // Filter by stock
-    if (filters.inStock) {
-      filtered = filtered.filter(p => p.inStock);
+    if (filters.instock) {
+      filtered = filtered.filter(p => p.instock);
     }
 
     setFilteredProducts(filtered);

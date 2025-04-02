@@ -64,3 +64,21 @@
     @apply px-4 md:px-8 mx-auto max-w-7xl;
   }
 }
+
+@media (min-width: 1022) and (max-width: 1334px) {
+  *{
+    width: 100vh;
+  }
+}
+
+.cart-drawer {
+  position: fixed !important;
+  z-index: 9999 !important;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}

@@ -83,7 +83,7 @@ const AboutPage = () => {
             
             <div className="text-center">
               <a 
-                href="https://wa.me/5500000000000" 
+                href="https://wa.me/557196451002" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn-primary inline-block"

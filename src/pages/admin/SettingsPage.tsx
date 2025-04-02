@@ -80,11 +80,11 @@ const SettingsPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="instagram">Instagram</Label>
-                <Input id="instagram" defaultValue="https://instagram.com/ateliegleicerios" />
+                <Input id="instagram" defaultValue="https://instagram.com/_usegleicerios/" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="facebook">Facebook</Label>
-                <Input id="facebook" defaultValue="https://facebook.com/ateliegleicerios" />
+                <Input id="facebook" defaultValue="https://facebook.com/_usegleicerios/" />
               </div>
             </div>
           </CardContent>

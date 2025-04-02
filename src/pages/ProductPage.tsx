@@ -64,7 +64,7 @@ const ProductPage = () => {
     addToCart({
       id: product.id,
       name: product.name,
-      price: product.salePrice || product.price,
+      price: product.saleprice || product.price,
       image: product.images[0],
     });
 
@@ -133,7 +133,7 @@ const ProductPage = () => {
                 </>
               )}
               
-              {product.salePrice && (
+              {product.saleprice && (
                 <div className="absolute top-4 left-4 bg-rose-500 text-white px-3 py-1 rounded-md font-medium text-sm">
                   Oferta
                 </div>
@@ -165,10 +165,10 @@ const ProductPage = () => {
             <h1 className="font-playfair text-3xl font-bold mb-2">{product.name}</h1>
             
             <div className="mb-4">
-              {product.salePrice ? (
+              {product.saleprice ? (
                 <div className="flex items-baseline">
                   <span className="text-2xl font-medium text-rose-500 mr-2">
-                    {formatCurrency(product.salePrice)}
+                    {formatCurrency(product.saleprice)}
                   </span>
                   <span className="text-lg text-gray-500 line-through">
                     {formatCurrency(product.price)}
@@ -260,13 +260,13 @@ const ProductPage = () => {
               <button
                 onClick={handleAddToCart}
                 className="flex-1 btn-primary"
-                disabled={!product.inStock}
+                disabled={!product.instock}
               >
-                {product.inStock ? 'Adicionar ao Carrinho' : 'Produto Indisponível'}
+                {product.instock ? 'Adicionar ao Carrinho' : 'Produto Indisponível'}
               </button>
               
               <a
-                href={`https://wa.me/5500000000000?text=Olá! Tenho interesse no produto: ${product.name}`}
+                href={`https://wa.me/557196451002?text=Olá! Tenho interesse no produto: ${product.name}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 btn-secondary text-center"
@@ -279,8 +279,8 @@ const ProductPage = () => {
             <div className="text-sm text-gray-500">
               <p className="mb-1">
                 Disponibilidade: 
-                <span className={product.inStock ? 'text-green-600' : 'text-red-600'}>
-                  {product.inStock ? ' Em estoque' : ' Fora de estoque'}
+                <span className={product.instock ? 'text-green-600' : 'text-red-600'}>
+                  {product.instock ? ' Em estoque' : ' Fora de estoque'}
                 </span>
               </p>
               <p>Categoria: {categoryMap[product.category] || product.category}</p>

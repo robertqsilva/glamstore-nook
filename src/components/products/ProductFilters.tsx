@@ -14,7 +14,7 @@ interface ProductFiltersProps {
     colors: string[];
     sizes: string[];
     priceRange: string | null;
-    inStock: boolean;
+    instock: boolean;
   };
   onFilterChange: (filterType: string, value: any) => void;
 }
@@ -149,12 +149,12 @@ export const ProductFilters = ({
         <div className="flex items-center">
           <input
             type="checkbox"
-            id="inStock"
+            id="instock"
             className="mr-2 h-4 w-4 text-rose-500 focus:ring-rose-400"
-            checked={selectedFilters.inStock}
-            onChange={(e) => onFilterChange('inStock', e.target.checked)}
+            checked={selectedFilters.instock}
+            onChange={(e) => onFilterChange('instock', e.target.checked)}
           />
-          <label htmlFor="inStock" className="text-gray-700">
+          <label htmlFor="instock" className="text-gray-700">
             Somente itens em estoque
           </label>
         </div>

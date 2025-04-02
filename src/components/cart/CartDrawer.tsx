@@ -20,7 +20,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
     
     const message = `Olá! Gostaria de finalizar minha compra:\n\n${items}\n\n*Total: ${total}*`;
     
-    const whatsappURL = `https://wa.me/5500000000000?text=${encodeURIComponent(message)}`;
+    const whatsappURL = `https://wa.me/557196451002?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
   };
 
@@ -30,7 +30,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
     <div className="fixed inset-0 z-50 overflow-hidden">
       <div className="absolute inset-0 bg-black/50" onClick={onClose}></div>
       
-      <div className="absolute top-0 right-0 h-full w-full max-w-md bg-white shadow-xl transform transition-all animate-slide-up">
+      <div className="cart-drawer top-0 right-0 h-full w-full max-w-md bg-white shadow-xl transform transition-all animate-slide-up">
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="p-4 border-b flex items-center justify-between">

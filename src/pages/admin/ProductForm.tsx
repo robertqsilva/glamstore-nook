@@ -34,12 +34,12 @@ const productFormSchema = z.object({
   name: z.string().min(3, { message: 'Nome deve ter pelo menos 3 caracteres' }),
   description: z.string().min(10, { message: 'Descrição deve ter pelo menos 10 caracteres' }),
   price: z.coerce.number().positive({ message: 'Preço deve ser positivo' }),
-  salePrice: z.coerce.number().positive({ message: 'Preço de promoção deve ser positivo' }).nullable(),
+  saleprice: z.coerce.number().positive({ message: 'Preço de promoção deve ser positivo' }).nullable(),
   category: z.string().min(1, { message: 'Categoria é obrigatória' }),
   images: z.array(z.string().url({ message: 'URL de imagem inválida' })).min(1, { message: 'Pelo menos uma imagem é necessária' }),
   colors: z.array(z.string()).min(1, { message: 'Pelo menos uma cor é necessária' }),
   sizes: z.array(z.string()).min(1, { message: 'Pelo menos um tamanho é necessário' }),
-  inStock: z.boolean(),
+  instock: z.boolean(),
   featured: z.boolean(),
 });
 
@@ -47,12 +47,12 @@ const defaultValues: ProductFormData = {
   name: '',
   description: '',
   price: 0,
-  salePrice: null,
+  saleprice: null,
   category: '',
   images: [''],
   colors: ['#000000'],
   sizes: ['P'],
-  inStock: true,
+  instock: true,
   featured: false,
 };
 
@@ -254,7 +254,7 @@ const ProductForm = () => {
 
               <FormField
                 control={form.control}
-                name="salePrice"
+                name="saleprice"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Preço Promocional (R$)</FormLabel>
@@ -415,7 +415,7 @@ const ProductForm = () => {
             <div className="flex flex-col md:flex-row gap-6">
               <FormField
                 control={form.control}
-                name="inStock"
+                name="instock"
                 render={({ field }) => (
                   <FormItem className="flex items-center space-x-2 space-y-0">
                     <FormControl>

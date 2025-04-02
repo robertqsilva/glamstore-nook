@@ -17,7 +17,7 @@ export const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://instagram.com/" 
+                href="https://www.instagram.com/_usegleicerios/" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-rose-500 transition-colors"
@@ -26,7 +26,7 @@ export const Footer = () => {
                 <Instagram size={20} />
               </a>
               <a 
-                href="https://wa.me/5500000000000" 
+                href="https://wa.me/557196451002" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-rose-500 transition-colors"

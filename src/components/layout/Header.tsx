@@ -48,7 +48,7 @@ export const Header = () => {
         {/* Social & Cart Icons */}
         <div className="flex items-center space-x-4">
           <a 
-            href="https://instagram.com/" 
+            href="https://instagram.com/_usegleicerios/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-gray-700 hover:text-rose-500 transition-colors"

@@ -28,8 +28,8 @@ const AdminDashboard = () => {
   // Calculate stats
   const totalProducts = products.length;
   const featuredProducts = products.filter(p => p.featured).length;
-  const onSaleProducts = products.filter(p => p.salePrice !== null).length;
-  const outOfStockProducts = products.filter(p => !p.inStock).length;
+  const onSaleProducts = products.filter(p => p.saleprice !== null).length;
+  const outOfStockProducts = products.filter(p => !p.instock).length;
 
   if (loading) {
     return (

@@ -93,13 +93,13 @@ export const ProductGrid = ({ products, loading = false }: ProductGridProps) => 
                 </h3>
                 <p className="text-gray-500 mb-3 line-clamp-2">{product.description}</p>
                 <div className="flex items-center mb-4">
-                  {product.salePrice ? (
+                  {product.saleprice ? (
                     <>
                       <span className="font-medium text-rose-500 mr-2">
                         {new Intl.NumberFormat('pt-BR', {
                           style: 'currency',
                           currency: 'BRL',
-                        }).format(product.salePrice)}
+                        }).format(product.saleprice)}
                       </span>
                       <span className="text-sm text-gray-500 line-through">
                         {new Intl.NumberFormat('pt-BR', {

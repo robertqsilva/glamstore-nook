@@ -18,7 +18,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     addToCart({
       id: product.id,
       name: product.name,
-      price: product.salePrice || product.price,
+      price: product.saleprice || product.price,
       image: product.images[0],
     });
   };
@@ -35,7 +35,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         
-        {product.salePrice && (
+        {product.saleprice && (
           <div className="absolute top-2 left-2 bg-rose-500 text-white text-xs font-medium px-2 py-1 rounded">
             Oferta
           </div>
@@ -54,10 +54,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       </h3>
       
       <div className="flex items-center">
-        {product.salePrice ? (
+        {product.saleprice ? (
           <>
             <span className="font-medium text-rose-500 mr-2">
-              {formatCurrency(product.salePrice)}
+              {formatCurrency(product.saleprice)}
             </span>
             <span className="text-sm text-gray-500 line-through">
               {formatCurrency(product.price)}
