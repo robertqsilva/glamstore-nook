@@ -43,7 +43,6 @@ const App = () => {
             <Routes>
               {/* Store Front Routes */}
               <Route path="/" element={<Home />} />
-              <Route path="/glamstore-nook" element={<Home />} />
               <Route path="/sobre" element={<AboutPage />} />
               <Route path="/colecao" element={<CollectionPage />} />
               <Route path="/categoria/:category" element={<CategoryPage />} />
@@ -57,7 +56,7 @@ const App = () => {
               <Route path="/admin/configuracoes" element={<SettingsPage />} />
               
               {/* 404 Route */}
-              <Route path="*" element={<NotFound />} />
+              <Route path="*" element={<Home />} />
             </Routes>
           </BrowserRouter>
         </CartProvider>
