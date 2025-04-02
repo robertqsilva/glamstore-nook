@@ -1,4 +1,3 @@
-
 /**
  * This file contains examples of API request/response bodies for documentation purposes.
  * The actual implementation is in the api.ts file.
@@ -7,7 +6,7 @@
 import { Product, ProductFormData } from "@/types/product";
 
 // Base URL for all API calls
-export const API_BASE_URL = 'https://api.ateliegleicerios.com.br/api';
+export const API_BASE_URL = 'https://atelie-backend.onrender.com/api';
 
 /**
  * GET /products
@@ -140,12 +139,12 @@ export const updateProductExample = {
     name: 'Vestido Floral Primavera - Atualizado',
     description: 'Vestido floral com decote V e manga curta, perfeito para ocasiões especiais e eventos diurnos.',
     price: 289.90,
-    salePrice: 229.90, // preço promocional atualizado
+    salePrice: 229.90,
     category: 'vestidos',
     images: [
       'https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1783&q=80',
     ],
-    colors: ['#F8C3D3', '#FFFFFF', '#000000', '#FF0000'], // cor adicionada
+    colors: ['#F8C3D3', '#FFFFFF', '#000000', '#FF0000'],
     sizes: ['P', 'M', 'G'],
     inStock: true,
     featured: true
