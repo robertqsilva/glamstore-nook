@@ -1,7 +1,7 @@
 import { Product, ProductFilter, ProductFormData } from "@/types/product";
 
 // API base URL (external API URL)
-const API_BASE_URL = "http://localhost:3000/api";
+const API_BASE_URL = "https://atelie-backend.onrender.com/api";
 
 // Generic fetch function with error handling
 const fetchApi = async (
