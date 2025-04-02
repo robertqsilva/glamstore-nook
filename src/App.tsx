@@ -43,6 +43,7 @@ const App = () => {
             <Routes>
               {/* Store Front Routes */}
               <Route path="/" element={<Home />} />
+              <Route path="/glamstore-nook" element={<Home />} />
               <Route path="/sobre" element={<AboutPage />} />
               <Route path="/colecao" element={<CollectionPage />} />
               <Route path="/categoria/:category" element={<CategoryPage />} />
