@@ -29,10 +29,10 @@ export const Categories = () => {
       path: '/categoria/blusas',
     },
     {
-      id: 'calcas',
-      name: 'Calças',
-      image: 'https://images.unsplash.com/photo-1509551388413-e18d05113e94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
-      path: '/categoria/calcas',
+      id: 'saias',
+      name: 'Saias',
+      image: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80',
+      path: '/categoria/saias',
     },
   ];
 

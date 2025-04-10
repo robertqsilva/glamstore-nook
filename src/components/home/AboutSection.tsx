@@ -5,13 +5,7 @@ export const AboutSection = () => {
       <div className="container-custom">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="font-playfair text-3xl font-bold mb-4">Sobre o Ateliê</h2>
-            <p className="text-gray-700 mb-4">
-              O Ateliê Gleice Rios nasceu da paixão por criar peças únicas que destacam a elegância natural de cada mulher. Nossa marca é conhecida por designs exclusivos, atenção aos detalhes e compromisso com a qualidade.
-            </p>
-            <p className="text-gray-700 mb-6">
-              Cada peça é cuidadosamente elaborada para valorizar a feminilidade e garantir conforto e estilo para diversas ocasiões.
-            </p>
+            <h2 className="font-playfair text-6xl font-bold mb-4">Sobre o Ateliê</h2>
             <a 
               href="/sobre" 
               className="font-medium text-rose-500 hover:text-rose-600 transition-colors"
@@ -22,7 +16,7 @@ export const AboutSection = () => {
           
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
+              src="https://raw.githubusercontent.com/robertqsilva/atelie-glamour-bazaar/refs/heads/main/public/lovable-uploads/d4dc73f1-a029-4418-bae1-73d28b7a9b7c.png" 
               alt="Ateliê Gleice Rios" 
               className="rounded-lg shadow-lg w-full h-auto object-cover aspect-[4/3]"
             />

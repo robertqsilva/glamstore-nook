@@ -74,8 +74,6 @@
 .cart-drawer {
   position: fixed !important;
   z-index: 9999 !important;
-  top: 0;
-  right: 0;
   width: 100%;
   max-width: 400px;
   height: auto;

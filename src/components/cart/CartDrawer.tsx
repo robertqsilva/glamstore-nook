@@ -1,7 +1,8 @@
-
+import { useEffect, useState } from 'react';
 import { X, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { useCart } from '@/hooks/useCart';
 import { formatCurrency } from '@/lib/utils';
+import axios from 'axios';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -10,32 +11,49 @@ interface CartDrawerProps {
 
 export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
   const { cartItems, removeFromCart, updateQuantity, getTotalPrice, clearCart } = useCart();
-  
+  const [whatsappNumber, setWhatsappNumber] = useState('557196451002'); // fallback padrão
+
+  useEffect(() => {
+    const fetchWhatsapp = async () => {
+      try {
+        const res = await axios.get('https://atelie-backend.onrender.com/api/infoloja');
+        if (res.data.whatsapp) {
+          const cleaned = res.data.whatsapp.replace(/\D/g, ''); // remove tudo que não for número
+          setWhatsappNumber(cleaned);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar número do WhatsApp:', error);
+      }
+    };
+
+    fetchWhatsapp();
+  }, []);
+
   const handleCheckout = () => {
-    const items = cartItems.map(item => 
+    const items = cartItems.map(item =>
       `*${item.name}* - ${item.quantity} ${item.quantity > 1 ? 'unidades' : 'unidade'} - ${formatCurrency(item.price * item.quantity)}`
     ).join('\n');
-    
+
     const total = formatCurrency(getTotalPrice());
-    
+
     const message = `Olá! Gostaria de finalizar minha compra:\n\n${items}\n\n*Total: ${total}*`;
-    
-    const whatsappURL = `https://wa.me/557196451002?text=${encodeURIComponent(message)}`;
+
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
-      <div className="absolute inset-0 bg-black/50" onClick={onClose}></div>
-      
+    <div className="inset-0 overflow-hidden">
+      <div className="inset-0 bg-black/50" onClick={onClose}></div>
+
       <div className="cart-drawer top-0 right-0 h-full w-full max-w-md bg-white shadow-xl transform transition-all animate-slide-up">
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="p-4 border-b flex items-center justify-between">
             <h2 className="font-playfair text-xl font-medium">Seu Carrinho</h2>
-            <button 
+            <button
               onClick={onClose}
               className="text-gray-500 hover:text-gray-700"
               aria-label="Fechar"
@@ -43,7 +61,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
               <X size={24} />
             </button>
           </div>
-          
+
           {/* Cart Items */}
           <div className="flex-1 overflow-auto p-4">
             {cartItems.length === 0 ? (
@@ -63,13 +81,13 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                         className="h-full w-full object-cover"
                       />
                     </div>
-                    
+
                     <div className="ml-4 flex flex-1 flex-col">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <h3>{item.name}</h3>
                         <p className="ml-4">{formatCurrency(item.price)}</p>
                       </div>
-                      
+
                       <div className="mt-auto flex justify-between items-center">
                         <div className="flex items-center border rounded">
                           <button
@@ -88,7 +106,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                             <Plus size={16} />
                           </button>
                         </div>
-                        
+
                         <button
                           onClick={() => removeFromCart(item.id)}
                           className="text-sm font-medium text-rose-500 hover:text-rose-600"
@@ -102,7 +120,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
               </ul>
             )}
           </div>
-          
+
           {/* Checkout */}
           {cartItems.length > 0 && (
             <div className="border-t p-4 space-y-4">
@@ -110,7 +128,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                 <p>Subtotal</p>
                 <p>{formatCurrency(getTotalPrice())}</p>
               </div>
-              
+
               <div className="space-y-2">
                 <button
                   onClick={handleCheckout}
@@ -118,7 +136,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                 >
                   Finalizar no WhatsApp
                 </button>
-                
+
                 <button
                   onClick={clearCart}
                   className="w-full text-sm text-gray-500 hover:text-gray-700"

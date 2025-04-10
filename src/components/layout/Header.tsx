@@ -1,17 +1,35 @@
 
-import { useState } from 'react';
+import {useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Instagram, ShoppingBag } from 'lucide-react';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { useCart } from '@/hooks/useCart';
+import axios from 'axios';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { cartItems } = useCart();
+  const [storeInfo, setStoreInfo] = useState<StoreInfo | null>(null);
+
+   type StoreInfo = {
+    nome: string;
+    email: string;
+    whatsapp: string;
+    horario: string;
+    descricao: string;
+    instagram: string;
+    facebook: string;
+  };
   
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const toggleCart = () => setIsCartOpen(!isCartOpen);
+  const toggleMenu = () => {
+  if (isCartOpen) setIsCartOpen(false); // Fecha o carrinho se estiver aberto
+  setIsMenuOpen((prev) => !prev); // Alterna o menu
+};
+ const toggleCart = () => {
+  if (isMenuOpen) setIsMenuOpen(false); // Fecha o menu se estiver aberto
+  setIsCartOpen((prev) => !prev); // Alterna o carrinho
+};
 
   const navLinks = [
     { name: 'Início', path: '/' },
@@ -24,12 +42,26 @@ export const Header = () => {
     { name: 'Sobre', path: '/sobre' },
   ];
 
+    useEffect(() => {
+    const fetchStoreInfo = async () => {
+      try {
+        const res = await axios.get('https://atelie-backend.onrender.com/api/infoloja');
+        setStoreInfo(res.data);
+      } catch (error) {
+        console.error('Erro ao buscar informações da loja:', error);
+      }
+    };
+
+    fetchStoreInfo();
+  }, []);
+
+
   return (
     <header className="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
       <div className="container-custom py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="font-playfair text-xl md:text-2xl font-bold">
-          Ateliê Gleice Rios
+          {storeInfo?.nome || 'Ateliê Gleice Rios'}
         </Link>
 
         {/* Desktop Navigation */}
